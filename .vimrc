@@ -52,9 +52,11 @@ set smartcase
 set incsearch
 set hlsearch
 
+" For vim-coffee
 au BufRead,BufNewFile *.coffee            set filetype=coffee
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
+
 "---------------------------------------------------
 " NeoBundle
 " --------------------------------------------------
@@ -82,6 +84,9 @@ NeoBundle 'http://github.com/Shougo/neocomplcache.git'
 NeoBundle 'http://github.com/taichouchou2/vim-rsense.git'
 NeoBundle 'http://github.com/kchmck/vim-coffee-script.git'
 
+" vim-quickrun
+NeoBundle 'http://github.com/thinca/vim-quickrun'
+
 "-------------------------------------------------
 " その他
 "-------------------------------------------------
@@ -90,5 +95,3 @@ source ~/dotfiles/.vimrc.unite
 
 " neocomplcache
 source ~/dotfiles/.vimrc.neocomplcache
-
-
