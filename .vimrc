@@ -55,7 +55,8 @@ set hlsearch
 " For vim-coffee
 au BufRead,BufNewFile *.coffee            set filetype=coffee
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
+au BufWritePost *.coffee silent make! -cb
+" | cwindow | redraw!
 
 "---------------------------------------------------
 " NeoBundle
@@ -87,6 +88,16 @@ NeoBundle 'http://github.com/kchmck/vim-coffee-script.git'
 " vim-quickrun
 NeoBundle 'http://github.com/thinca/vim-quickrun'
 
+" Node.js
+NeoBundle 'http://github.com/mattn/jscomplete-vim'
+NeoBundle 'http://github.com/myhere/vim-nodejs-complete'
+autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
+if !exists('g:neocomplcache_omni_functions')
+  let g:neocomplcache_omni_functions = {}
+endif
+let g:neocomplcache_omni_functions.javascript = 'nodejscomplete#CompleteJS'
+
+let g:node_usejscomplete = 1
 "-------------------------------------------------
 " その他
 "-------------------------------------------------
