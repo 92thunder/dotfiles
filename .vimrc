@@ -1,14 +1,7 @@
 set nocompatible
 
 "" color
-colorscheme molokai
-" railscasts.vim
-if $COLORTERM == 'gnome-terminal'
-  set term=gnome-256color
-  colorscheme railscasts
-else
-  colorscheme default
-endif
+colorscheme desert
 syntax on
 set background=dark
 
@@ -65,7 +58,7 @@ filetype off
 if has('vim_starting')
   set runtimepath+=~/.bundle/neobundle.vim/
 
-  call neobundle#rc(expand('~/.bundle'))
+  call neobundle#begin(expand('~/.bundle'))
 endif
 
 filetype plugin on
@@ -91,6 +84,8 @@ NeoBundle 'http://github.com/thinca/vim-quickrun'
 " Node.js
 NeoBundle 'http://github.com/mattn/jscomplete-vim'
 NeoBundle 'http://github.com/myhere/vim-nodejs-complete'
+
+call neobundle#end()
 autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
 if !exists('g:neocomplcache_omni_functions')
   let g:neocomplcache_omni_functions = {}
